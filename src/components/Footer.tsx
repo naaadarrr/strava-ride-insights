@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center">
           <a
-            href="https://github.com/hellohy/strava-ride-insights"
+            href="https://github.com/hi-otto/strava-ride-insights"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-gray-600 transition-colors flex items-center"
