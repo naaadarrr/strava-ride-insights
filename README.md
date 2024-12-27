@@ -1,21 +1,85 @@
-# React + TypeScript + Vite
+# Strava Ride Insights
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application that provides insights and visualization for your Strava activities. Built with React, TypeScript, and Vite.
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+## Features
 
-## Deploy Your Own
+- 🔐 Strava OAuth Authentication
+- 🗺️ Activity Map Visualization using Leaflet
+- 📊 Activity Statistics and Insights
+- 🎨 Modern UI with Tailwind CSS
 
-Deploy your own Vite project with Vercel.
+## Prerequisites
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite-react&template=vite-react)
+- Node.js (LTS version recommended)
+- A Strava API Application (create one at https://www.strava.com/settings/api)
 
-_Live Example: https://vite-react-example.vercel.app_
+## Getting Started
 
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/strava-ride-insights.git
+cd strava-ride-insights
 ```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Configure environment variables:
+   - Copy `.env.example` to `.env`
+   - Fill in your Strava API credentials in `.env`:
+     ```
+     STRAVA_CLIENT_ID=your_client_id
+     STRAVA_CLIENT_SECRET=your_client_secret
+     STRAVA_REDIRECT_URI=your_redirect_uri
+     ```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+## Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` directory.
+
+## Technology Stack
+
+- **Frontend Framework**: React 18
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Map Library**: Leaflet with react-leaflet
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
+
+## Development
+
+- `npm run dev` - Start development server
+- `npm run build` - Create production build
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## Deployment
+
+This project is configured for deployment on Vercel. Make sure to:
+
+1. Configure environment variables in your Vercel project settings
+2. Set up the Strava OAuth redirect URI to match your deployed domain
+3. Update the Strava API application settings with the correct callback URL
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).

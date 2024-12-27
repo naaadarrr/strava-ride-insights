@@ -1,0 +1,175 @@
+{
+  "app": {
+    "title": "Strava Ride Insights"
+  },
+  "navigation": {
+    "home": "Home",
+    "activities": "Activities",
+    "stats": "Statistics",
+    "logout": "Logout"
+  },
+  "auth": {
+    "login": "Login with Strava",
+    "logout": "Logout"
+  },
+  "login": {
+    "title": "Connect Strava Account",
+    "description": "Authorize access to your Strava cycling data and start exploring your riding journey",
+    "connectButton": "Connect Strava"
+  },
+  "home": {
+    "title": "Track Your Cycling Journey",
+    "subtitle": "Gain insights into your riding data and discover new breakthroughs",
+    "stats": {
+      "title": "Statistics",
+      "description": "View detailed riding statistics, including total mileage, elevation gain, duration, and other key metrics",
+      "trendAnalysis": "Trend Analysis",
+      "timeDistribution": "Time Distribution"
+    },
+    "activities": {
+      "title": "Activities",
+      "description": "Browse your complete riding history, including routes, photos, and achievements",
+      "routeVisualization": "Route Visualization",
+      "activityDetails": "Activity Details"
+    }
+  },
+  "stats": {
+    "title": "Ride Statistics",
+    "total_distance": "Total Distance",
+    "total_elevation": "Total Elevation",
+    "total_time": "Total Time",
+    "total_power": "Total Power",
+    "view_total": "View Total",
+    "view_by_year": "View by Year",
+    "year": "Year",
+    "hours": "hours",
+    "minutes": "minutes",
+    "miles": "miles",
+    "feet": "feet",
+    "watts": "watts",
+    "meters": "meters",
+    "overview": {
+      "title": "Ride Overview",
+      "total_distance": "Total Distance",
+      "total_time": "Total Time",
+      "total_rides": "Total Rides",
+      "times": "times"
+    },
+    "best_records": {
+      "title": "Best Records",
+      "longest_ride": "Longest Ride",
+      "highest_elevation": "Highest Elevation",
+      "fastest_speed": "Fastest Speed"
+    },
+    "time_distribution": {
+      "title": "Riding Time Distribution",
+      "morning": "Morning (5-11)",
+      "afternoon": "Afternoon (11-17)",
+      "evening": "Evening (17-22)",
+      "night": "Night (22-5)",
+      "percentage": "%"
+    },
+    "weekday_stats": {
+      "title": "Weekday vs Weekend",
+      "weekday_rides": "Weekday Rides",
+      "weekend_rides": "Weekend Rides",
+      "times": "times",
+      "average": "Average"
+    },
+    "records": {
+      "title": "Best Records",
+      "longestRide": "Longest Ride",
+      "highestClimb": "Highest Climb",
+      "feet": "feet"
+    },
+    "averages": {
+      "title": "Average Data",
+      "distance": "Average Distance"
+    },
+    "average": {
+      "title": "Average Data",
+      "average_distance": "Average Distance",
+      "fastest_speed": "Fastest Speed",
+      "miles": "mi",
+      "miles_per_hour": "mph"
+    },
+    "seasonal": {
+      "title": "Seasonal Distribution",
+      "spring": "Spring",
+      "summer": "Summer",
+      "autumn": "Autumn",
+      "winter": "Winter",
+      "rideCount": "Ride Count",
+      "rides": "rides",
+      "avgDistance": "Average Distance",
+      "totalDistance": "Total Distance"
+    },
+    "weekendComparison": {
+      "title": "Weekday vs Weekend",
+      "weekday": "Weekday Rides",
+      "weekend": "Weekend Rides",
+      "rides": "rides",
+      "average": "Average"
+    },
+    "yearSelector": {
+      "year": "Year"
+    }
+  },
+  "activities": {
+    "title": "Cycling Activities",
+    "loading": "Loading...",
+    "loadMore": "Load More",
+    "card": {
+      "distance": "Distance",
+      "duration": "Duration",
+      "elevation": "Elevation",
+      "speed": "Average Speed",
+      "heartRate": "Average Heart Rate",
+      "date": "Date",
+      "kilometers": "km",
+      "metersShort": "m",
+      "kmPerHour": "km/h",
+      "hoursShort": "h",
+      "minutesShort": "min"
+    }
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "formats": {
+    "distance": {
+      "long": "{{value}} miles",
+      "short": "{{value}}mi"
+    },
+    "duration": {
+      "long": "{{hours}} hours {{minutes}} minutes",
+      "short": "{{hours}}h {{minutes}}m"
+    },
+    "speed": {
+      "long": "{{value}} miles per hour",
+      "short": "{{value}}mph"
+    },
+    "date": {
+      "full": "dddd, MMMM D, YYYY",
+      "long": "MMMM D, YYYY",
+      "short": "MM/DD/YYYY"
+    }
+  },
+  "units": {
+    "distance": {
+      "mile": "mile",
+      "miles": "miles",
+      "short_mile": "mi",
+      "feet": "feet",
+      "ft": "ft"
+    },
+    "speed": {
+      "mph": "mph",
+      "mph_long": "miles per hour"
+    },
+    "elevation": {
+      "feet": "feet",
+      "ft": "ft"
+    }
+  }
+}
