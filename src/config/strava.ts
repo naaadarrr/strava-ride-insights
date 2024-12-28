@@ -5,4 +5,4 @@ export const STRAVA_CLIENT_SECRET = import.meta.env.VITE_STRAVA_CLIENT_SECRET ||
 // Get redirect URI based on environment
 export const STRAVA_REDIRECT_URI = import.meta.env.DEV 
   ? 'http://localhost:5173'  // Development environment
-  : 'https://bike.hy-life.me';  // Production environment
+  : import.meta.env.VITE_STRAVA_REDIRECT_URI;  // Production environment

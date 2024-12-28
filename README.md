@@ -1,3 +1,5 @@
+> Note: VITE_STRAVA_CLIENT_SECRET will exposed and should not be used in production. We are working on a solution.
+
 # Strava Ride Insights
 
 A web application that provides insights and visualization for your Strava activities. Built with React, TypeScript, and Vite.
@@ -31,9 +33,10 @@ npm install
    - Copy `.env.example` to `.env`
    - Fill in your Strava API credentials in `.env`:
      ```
-     STRAVA_CLIENT_ID=your_client_id
-     STRAVA_CLIENT_SECRET=your_client_secret
-     STRAVA_REDIRECT_URI=your_redirect_uri
+    VITE_STRAVA_CLIENT_ID=your_client_id
+    VITE_STRAVA_CLIENT_SECRET=your_client_secret
+    VITE_STRAVA_REDIRECT_URI=https://your_redirect_uri
+
      ```
 
 4. Start the development server:
