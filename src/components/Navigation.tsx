@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Activity, BarChart2, Bike, LogOut, Menu, X } from 'lucide-react';
+import { BarChart2, Bike, LogOut, Menu, X } from 'lucide-react';
+import { Logo } from './Logo';
 import { useAuth } from '../hooks/useAuth';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -13,7 +14,7 @@ export function Navigation() {
   const { t } = useTranslation();
 
   const links = [
-    { to: '/', icon: Activity, label: t('navigation.home') },
+    { to: '/', icon: Logo, label: t('navigation.home') },
     { to: '/stats', icon: BarChart2, label: t('navigation.stats') },
     { to: '/activities', icon: Bike, label: t('navigation.activities') },
   ];
@@ -23,7 +24,7 @@ export function Navigation() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Activity className="h-8 w-8 text-orange-500" />
+            <Logo className="h-8 w-8" />
             <span className="ml-2 text-lg sm:text-xl font-bold text-gray-900 dark:text-white truncate">
               {t('app.title')}
             </span>
@@ -135,6 +136,10 @@ export function Navigation() {
                 {t('navigation.logout')}
               </button>
             )}
+            <div className="flex items-center justify-between px-3 py-2 border-t border-gray-200 dark:border-gray-700">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
           </div>
         )}
       </nav>

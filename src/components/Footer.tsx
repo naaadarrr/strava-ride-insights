@@ -1,11 +1,17 @@
 import React from 'react';
 import { Github } from 'lucide-react';
+import poweredByStravaLight from '../assets/strava/api_logo_pwrdBy_strava_horiz_light.svg';
 
 export function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 right-0 py-2">
+    <footer className="py-4 mt-auto">
       <div className="container mx-auto px-4">
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center gap-8">
+          <img
+            src={poweredByStravaLight}
+            alt="Powered by Strava"
+            className="h-5"
+          />
           <a
             href="https://github.com/hi-otto/strava-ride-insights"
             target="_blank"

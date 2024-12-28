@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { BarChart2, Bike, TrendingUp, Map, Timer, Calendar } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AuthGuard } from '../components/AuthGuard';
-import { Footer } from '../components/Footer';
 import { AthleteStats } from '../components/AthleteStats';
 
 export function Home() {
@@ -75,7 +74,6 @@ export function Home() {
           </Link>
         </div>
       </div>
-      <Footer />
     </AuthGuard>
   );
 }
