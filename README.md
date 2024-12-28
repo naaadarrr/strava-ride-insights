@@ -33,10 +33,9 @@ npm install
    - Copy `.env.example` to `.env`
    - Fill in your Strava API credentials in `.env`:
      ```
-    VITE_STRAVA_CLIENT_ID=your_client_id
-    VITE_STRAVA_CLIENT_SECRET=your_client_secret
-    VITE_STRAVA_REDIRECT_URI=https://your_redirect_uri
-
+       VITE_STRAVA_CLIENT_ID=your_client_id
+       VITE_STRAVA_CLIENT_SECRET=your_client_secret
+       VITE_STRAVA_REDIRECT_URI=https://your_redirect_uri
      ```
 
 4. Start the development server:
