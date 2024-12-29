@@ -1,0 +1,146 @@
+{
+  "app": {
+    "title": "骑行数据"
+  },
+  "navigation": {
+    "home": "首页",
+    "activities": "活动",
+    "stats": "统计",
+    "logout": "退出"
+  },
+  "auth": {
+    "login": "使用 Strava 登录",
+    "logout": "退出登录"
+  },
+  "login": {
+    "title": "连接 Strava 账号",
+    "description": "授权访问您的 Strava 骑行数据，开始探索您的骑行旅程",
+    "connectButton": "连接 Strava"
+  },
+  "home": {
+    "title": "追踪您的骑行旅程",
+    "subtitle": "深入了解您的骑行数据，发现新的突破",
+    "stats": {
+      "title": "数据统计",
+      "description": "查看详细的骑行统计数据，包括总里程、爬升、时长等关键指标",
+      "trendAnalysis": "趋势分析",
+      "timeDistribution": "时间分布"
+    },
+    "activities": {
+      "title": "骑行活动",
+      "description": "浏览您的完整骑行历史，包括路线、照片和成就",
+      "routeVisualization": "路线可视化",
+      "activityDetails": "活动详情"
+    }
+  },
+  "stats": {
+    "title": "骑行统计",
+    "total_distance": "总距离",
+    "total_elevation": "总爬升",
+    "total_time": "总时长",
+    "total_power": "功率",
+    "view_total": "查看总计",
+    "view_by_year": "按年份",
+    "year": "年",
+    "hours": "小时",
+    "minutes": "分钟",
+    "kilometers": "公里",
+    "meters": "米",
+    "watts": "瓦特",
+    "overview": {
+      "title": "骑行总览",
+      "total_distance": "总距离",
+      "total_time": "总时长",
+      "total_rides": "骑行次数",
+      "times": "次"
+    },
+    "best_records": {
+      "title": "最佳记录",
+      "longest_ride": "最长骑行",
+      "highest_elevation": "最高爬升",
+      "fastest_speed": "最快速度"
+    },
+    "time_distribution": {
+      "title": "骑行时段分布",
+      "morning": "早晨 (5-11点)",
+      "afternoon": "下午 (11-17点)",
+      "evening": "傍晚 (17-22点)",
+      "night": "夜间 (22-5点)",
+      "percentage": "%"
+    },
+    "weekday_stats": {
+      "title": "工作日 vs 周末",
+      "weekday_rides": "工作日骑行",
+      "weekend_rides": "周末骑行",
+      "times": "次",
+      "average": "平均"
+    },
+    "records": {
+      "title": "最佳记录",
+      "longestRide": "最长骑行",
+      "highestClimb": "最大爬升",
+      "meters": "米"
+    },
+    "averages": {
+      "title": "平均数据",
+      "distance": "平均距离"
+    },
+    "average": {
+      "title": "平均数据",
+      "average_distance": "平均距离",
+      "fastest_speed": "最快速度",
+      "speed": "平均速度",
+      "kilometers": "公里",
+      "kilometers_per_hour": "公里/小时"
+    },
+    "seasonal": {
+      "title": "季节分布",
+      "spring": "春季",
+      "summer": "夏季",
+      "autumn": "秋季",
+      "winter": "冬季",
+      "rideCount": "骑行次数",
+      "rides": "次",
+      "avgDistance": "平均距离",
+      "totalDistance": "总距离"
+    },
+    "weekendComparison": {
+      "title": "工作日 vs 周末",
+      "weekday": "工作日骑行",
+      "weekend": "周末骑行",
+      "rides": "次",
+      "average": "平均"
+    },
+    "yearSelector": {
+      "year": "年"
+    }
+  },
+  "activities": {
+    "title": "骑行活动",
+    "loading": "加载中...",
+    "loadMore": "加载更多",
+    "card": {
+      "distance": "距离",
+      "duration": "时长",
+      "elevation": "爬升",
+      "speed": "平均速度",
+      "heartRate": "平均心率",
+      "date": "日期",
+      "kilometers": "公里",
+      "metersShort": "米",
+      "kmPerHour": "公里/小时",
+      "hoursShort": "小时",
+      "minutesShort": "分钟"
+    }
+  },
+  "common": {
+    "loading": "加载中..."
+  },
+  "unit": {
+    "kilometer": "公里",
+    "meter": "米",
+    "hour": "小时",
+    "minute": "分钟",
+    "kmh": "公里/小时"
+  }
+}
