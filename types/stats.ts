@@ -5,6 +5,7 @@ export interface RideStats {
   totalRides: number
   averageDistance: number
   averageSpeed: number
+  averagePower?: number
   longestRide: {
     distance: number
     date: string

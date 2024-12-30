@@ -12,6 +12,7 @@ export function calculateRideStats(activities: StravaActivity[]): RideStats {
       totalRides: 0,
       averageDistance: 0,
       averageSpeed: 0,
+      averagePower: 0,
       longestRide: {
         distance: 0,
         date: new Date().toISOString(),
@@ -33,6 +34,12 @@ export function calculateRideStats(activities: StravaActivity[]): RideStats {
   const totalDistance = activities.reduce((sum, a) => sum + a.distance, 0)
   const totalTime = activities.reduce((sum, a) => sum + a.moving_time, 0)
   const totalElevation = activities.reduce((sum, a) => sum + a.total_elevation_gain, 0)
+
+  // 计算平均功率（只计算有功率数据的活动）
+  const activitiesWithPower = activities.filter(a => a.average_watts)
+  const averagePower = activitiesWithPower.length > 0
+    ? activitiesWithPower.reduce((sum, a) => sum + (a.average_watts || 0), 0) / activitiesWithPower.length
+    : 0
 
   const longestRide = activities.reduce(
     (max, current) => (current.distance > max.distance ? current : max),
@@ -56,6 +63,7 @@ export function calculateRideStats(activities: StravaActivity[]): RideStats {
     totalRides: activities.length,
     averageDistance: totalDistance / activities.length,
     averageSpeed: totalDistance / totalTime,
+    averagePower: Math.round(averagePower),
     longestRide: {
       distance: longestRide.distance,
       date: longestRide.start_date,

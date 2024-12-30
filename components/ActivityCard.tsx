@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapPin, Clock, TrendingUp, Calendar, Heart, Bike } from 'lucide-react'
+import { MapPin, Clock, TrendingUp, Calendar, Heart, Bike, Zap } from 'lucide-react'
 import type { StravaActivity } from '@/types/strava'
 import { useTranslations } from 'next-intl'
 import { ActivityMap } from './ActivityMap'
@@ -12,9 +12,9 @@ interface ActivityCardProps {
 export function ActivityCard({ activity, onClick }: ActivityCardProps) {
   const t = useTranslations()
 
-  if (activity.trainer) {
-    return null // Skip indoor rides
-  }
+  // if (activity.trainer) {
+  //   return null // Skip indoor rides
+  // }
 
   const formatDuration = (seconds: number) => {
     const hours = Math.floor(seconds / 3600)
@@ -52,9 +52,17 @@ export function ActivityCard({ activity, onClick }: ActivityCardProps) {
 
       <div className="p-6">
         <div className="flex items-start justify-between">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            {activity.name}
-          </h3>
+          <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center text-gray-500 dark:text-gray-400">
+              <Calendar className="h-4 w-4 mr-1 text-purple-500" />
+              <span className="text-sm">
+                {formatDate(activity.start_date_local)}
+              </span>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              {activity.name}
+            </h3>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mt-4">
@@ -72,13 +80,25 @@ export function ActivityCard({ activity, onClick }: ActivityCardProps) {
 
           <div className="flex flex-col space-y-1">
             <div className="flex items-center text-gray-600 dark:text-gray-400">
-              <Clock className="h-4 w-4 mr-1 text-indigo-500" />
+              <Clock className="h-4 w-4 mr-1 text-purple-500" />
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 {t('activities.card.duration')}
               </p>
             </div>
             <p className="font-semibold text-gray-900 dark:text-white">
               {formatDuration(activity.moving_time)}
+            </p>
+          </div>
+
+          <div className="flex flex-col space-y-1">
+            <div className="flex items-center text-gray-600 dark:text-gray-400">
+              <Zap className="h-4 w-4 mr-1 text-purple-500" />
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                {t('activities.card.average_power')}
+              </p>
+            </div>
+            <p className="font-semibold text-gray-900 dark:text-white">
+              {activity.average_watts ? `${Math.round(activity.average_watts)}W` : '-'}
             </p>
           </div>
 
@@ -119,18 +139,6 @@ export function ActivityCard({ activity, onClick }: ActivityCardProps) {
               </p>
             </div>
           )}
-
-          <div className="flex flex-col space-y-1">
-            <div className="flex items-center text-gray-600 dark:text-gray-400">
-              <Calendar className="h-4 w-4 mr-1 text-purple-500" />
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                {t('activities.card.date')}
-              </p>
-            </div>
-            <p className="font-semibold text-gray-900 dark:text-white">
-              {formatDate(activity.start_date_local)}
-            </p>
-          </div>
         </div>
       </div>
     </div>

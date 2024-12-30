@@ -62,18 +62,18 @@ export function StatsContainer({ activities }: StatsContainerProps) {
         <div className="flex items-center justify-center sm:justify-end gap-1 text-sm">
           <button
             onClick={() => handleYearChange('prev')}
-            className="p-1 hover:bg-gray-100 rounded transition-colors"
+            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
             disabled={years.indexOf(selectedYear) === years.length - 1}
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </button>
           <span className="font-medium text-gray-700 dark:text-gray-300">{selectedYear}</span>
           <button
             onClick={() => handleYearChange('next')}
-            className="p-1 hover:bg-gray-100 rounded transition-colors"
+            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
             disabled={years.indexOf(selectedYear) === 0}
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </button>
         </div>
       </div>

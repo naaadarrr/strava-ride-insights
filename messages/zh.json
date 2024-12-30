@@ -91,7 +91,8 @@
       "fastest_speed": "最快速度",
       "speed": "平均速度",
       "kilometers": "公里",
-      "kilometers_per_hour": "公里/小时"
+      "kilometers_per_hour": "公里/小时",
+      "power": "平均功率"
     },
     "seasonal": {
       "title": "季节分布",
@@ -130,7 +131,8 @@
       "metersShort": "米",
       "kmPerHour": "公里/小时",
       "hoursShort": "小时",
-      "minutesShort": "分钟"
+      "minutesShort": "分钟",
+      "average_power": "平均功率"
     }
   },
   "common": {

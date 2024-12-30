@@ -29,7 +29,6 @@ export default function Activities() {
       ) : (
         <div className="space-y-4">
           {activities
-            .filter(activity => !activity.trainer)
             .map(activity => (
               <ActivityCard key={activity.id} activity={activity} />
             ))}

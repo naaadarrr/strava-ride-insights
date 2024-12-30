@@ -87,12 +87,13 @@
       "distance": "Average Distance"
     },
     "average": {
-      "title": "Average Data",
+      "title": "Averages",
       "average_distance": "Average Distance",
       "fastest_speed": "Fastest Speed",
       "speed": "Average Speed",
       "miles": "mi",
-      "miles_per_hour": "mph"
+      "miles_per_hour": "mph",
+      "power": "Average Power"
     },
     "seasonal": {
       "title": "Seasonal Distribution",
@@ -131,7 +132,8 @@
       "metersShort": "m",
       "kmPerHour": "km/h",
       "hoursShort": "h",
-      "minutesShort": "min"
+      "minutesShort": "min",
+      "average_power": "Average Power"
     }
   },
   "common": {

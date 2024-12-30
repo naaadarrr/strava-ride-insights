@@ -128,6 +128,14 @@ export function OverallStats({ stats }: OverallStatsProps) {
               <Speed value={stats.averageSpeed} />
             </p>
           </div>
+          <div className="group transition-all duration-300">
+            <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-300">
+              {t('stats.average.power')}
+            </p>
+            <p className="text-2xl font-bold text-green-700 dark:text-green-300 group-hover:scale-105 transition-transform">
+              {stats.averagePower}W
+            </p>
+          </div>
         </div>
       </div>
     </div>

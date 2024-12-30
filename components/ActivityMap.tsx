@@ -31,7 +31,7 @@ export function ActivityMap({ activity }: ActivityMapProps) {
 
     return (
       <div className="h-[400px] w-full rounded-lg overflow-hidden">
-        <MapContainer bounds={positions} className="h-full w-full">
+        <MapContainer bounds={positions} className="h-full w-full" scrollWheelZoom={false}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <Polyline positions={positions} />
         </MapContainer>
