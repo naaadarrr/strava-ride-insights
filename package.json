@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@mapbox/polyline": "^1.2.1",
+    "@vercel/analytics": "^1.4.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "lucide-react": "^0.469.0",
