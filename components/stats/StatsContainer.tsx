@@ -12,38 +12,35 @@ import {
   calculateSeasonalStats,
 } from '../../utils/statsCalculator'
 import { useTranslations } from 'next-intl'
+import { useStatsActivities } from '@/hooks/useStatsActivities'
 
-interface StatsContainerProps {
-  activities: StravaActivity[]
-}
+const YEARS_TO_SHOW = 5 // 控制显示最近几年的数据
 
-export function StatsContainer({ activities }: StatsContainerProps) {
+export function StatsContainer() {
   const t = useTranslations()
-  const [selectedYear, setSelectedYear] = useState<number>(2024)
+  const now = new Date()
+  const currentYear = now.getFullYear()
+  // 如果是1月份的前7天，默认显示上一年的数据
+  const defaultYear = now.getMonth() === 0 && now.getDate() <= 7 ? currentYear - 1 : currentYear
+  const [selectedYear, setSelectedYear] = useState<number>(defaultYear)
+  const { activities, isLoading, error } = useStatsActivities(selectedYear)
 
   const years = useMemo(() => {
-    const currentYear = new Date().getFullYear()
-    return [currentYear, currentYear - 1, currentYear - 2]
-  }, [])
+    return Array.from({ length: YEARS_TO_SHOW }, (_, i) => currentYear - i)
+  }, [currentYear])
 
-  const filteredActivities = useMemo(
-    () =>
-      activities.filter(activity => new Date(activity.start_date).getFullYear() === selectedYear),
-    [activities, selectedYear]
-  )
-
-  const stats = useMemo(() => calculateRideStats(filteredActivities), [filteredActivities])
+  const stats = useMemo(() => calculateRideStats(activities || []), [activities])
   const timeDistribution = useMemo(
-    () => calculateTimeDistribution(filteredActivities),
-    [filteredActivities]
+    () => calculateTimeDistribution(activities || []),
+    [activities]
   )
   const weekdayStats = useMemo(
-    () => calculateWeekdayStats(filteredActivities),
-    [filteredActivities]
+    () => calculateWeekdayStats(activities || []),
+    [activities]
   )
   const seasonalStats = useMemo(
-    () => calculateSeasonalStats(filteredActivities),
-    [filteredActivities]
+    () => calculateSeasonalStats(activities || []),
+    [activities]
   )
 
   const handleYearChange = (direction: 'prev' | 'next') => {
@@ -56,27 +53,46 @@ export function StatsContainer({ activities }: StatsContainerProps) {
   }
 
   return (
-    <div className="space-y-6">
+    <div className={`space-y-6 ${isLoading ? "opacity-50 pointer-events-none" : ""}`}>
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{t('stats.title')}</h2>
         <div className="flex items-center justify-center sm:justify-end gap-1 text-sm">
           <button
             onClick={() => handleYearChange('prev')}
-            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
-            disabled={years.indexOf(selectedYear) === years.length - 1}
+            className={`p-1 rounded transition-colors ${
+              years.indexOf(selectedYear) === years.length - 1 || isLoading
+                ? 'opacity-40 cursor-not-allowed'
+                : 'hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer'
+            }`}
+            disabled={years.indexOf(selectedYear) === years.length - 1 || isLoading}
           >
             <ChevronLeft className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </button>
-          <span className="font-medium text-gray-700 dark:text-gray-300">{selectedYear}</span>
+          <span className="font-medium text-gray-700 dark:text-gray-300 min-w-[4rem] text-center">
+            {selectedYear}
+            {isLoading && (
+              <span className="ml-2 inline-block animate-spin rounded-full h-3 w-3 border-b-2 border-orange-500" />
+            )}
+          </span>
           <button
             onClick={() => handleYearChange('next')}
-            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
-            disabled={years.indexOf(selectedYear) === 0}
+            className={`p-1 rounded transition-colors ${
+              years.indexOf(selectedYear) === 0 || isLoading
+                ? 'opacity-40 cursor-not-allowed'
+                : 'hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer'
+            }`}
+            disabled={years.indexOf(selectedYear) === 0 || isLoading}
           >
             <ChevronRight className="w-4 h-4 text-gray-500 dark:text-gray-400" />
           </button>
         </div>
       </div>
+
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          {error}
+        </div>
+      )}
 
       {/* First row - Overall Stats */}
       <div className="grid grid-cols-1">

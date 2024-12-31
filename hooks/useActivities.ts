@@ -36,7 +36,6 @@ export function useActivities(): UseActivitiesReturn {
       if (data.length === 0) {
         setHasMore(false)
       } else {
-        console.log('data', data.length)
         setActivities(prev => (pageNum === 1 ? data : [...prev, ...data]))
         setPage(pageNum)
       }

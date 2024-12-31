@@ -11,7 +11,10 @@ export function TimeDistributionChart({ distribution }: TimeDistributionChartPro
   const t = useTranslations()
   const total = Object.values(distribution).reduce((sum, val) => sum + val, 0)
 
-  const getPercentage = (value: number) => ((value / total) * 100).toFixed(1)
+  const getPercentage = (value: number) => {
+    if (total === 0) return '0.0'
+    return ((value / total) * 100).toFixed(1)
+  }
 
   return (
     <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-purple-100 hover:to-purple-200 dark:hover:from-purple-900 dark:hover:to-purple-800">

@@ -51,7 +51,7 @@ export function SeasonalStats({ stats }: SeasonalStatsProps) {
   }
 
   return (
-    <div className="bg-gradient-to-br from-rose-50 to-rose-100 dark:from-rose-950 dark:to-rose-900 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl col-span-2">
+    <div className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/50 dark:to-teal-800/50 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl col-span-2">
       <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-6">
         {t('stats.seasonal.title')}
       </h3>
@@ -60,10 +60,10 @@ export function SeasonalStats({ stats }: SeasonalStatsProps) {
         {seasons.map(({ name, icon: Icon, color, data }) => (
           <div
             key={name}
-            className="bg-white/60 dark:bg-black/20 p-4 rounded-lg transition-all duration-300 hover:bg-white/80 dark:hover:bg-black/40 hover:scale-105 hover:shadow-md"
+            className="bg-white/60 dark:bg-white/5 p-4 rounded-lg transition-all duration-300 hover:bg-white/80 dark:hover:bg-white/10 hover:scale-105 hover:shadow-md"
           >
             <div className="flex items-center gap-2 mb-3">
-              <Icon className={`h-5 w-5 ${getIconColorClass(color)} dark:text-${color}-300`} />
+              <Icon className={`h-5 w-5 ${getIconColorClass(color)} dark:text-${color}-400`} />
               <span className="font-medium text-gray-700 dark:text-gray-200">{name}</span>
             </div>
 
@@ -78,9 +78,9 @@ export function SeasonalStats({ stats }: SeasonalStatsProps) {
                     {t('stats.seasonal.rides')}
                   </span>
                 </div>
-                <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-2 overflow-hidden">
+                <div className="w-full bg-gray-100 dark:bg-gray-800/50 rounded-full h-2 overflow-hidden">
                   <div
-                    className={`h-2 rounded-full ${getColorClass(color)} dark:opacity-80 transition-all duration-500 ease-out`}
+                    className={`h-2 rounded-full ${getColorClass(color)} dark:opacity-90 transition-all duration-500 ease-out`}
                     style={{
                       width: `${(data.totalRides / totalRides) * 100}%`,
                       transform: 'translateX(0)',

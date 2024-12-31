@@ -1,3 +1,55 @@
+export type StravaSportType =
+  | 'AlpineSki'
+  | 'BackcountrySki'
+  | 'Badminton'
+  | 'Canoeing'
+  | 'Crossfit'
+  | 'EBikeRide'
+  | 'Elliptical'
+  | 'EMountainBikeRide'
+  | 'Golf'
+  | 'GravelRide'
+  | 'Handcycle'
+  | 'HighIntensityIntervalTraining'
+  | 'Hike'
+  | 'IceSkate'
+  | 'InlineSkate'
+  | 'Kayaking'
+  | 'Kitesurf'
+  | 'MountainBikeRide'
+  | 'NordicSki'
+  | 'Pickleball'
+  | 'Pilates'
+  | 'Racquetball'
+  | 'Ride'
+  | 'RockClimbing'
+  | 'RollerSki'
+  | 'Rowing'
+  | 'Run'
+  | 'Sail'
+  | 'Skateboard'
+  | 'Snowboard'
+  | 'Snowshoe'
+  | 'Soccer'
+  | 'Squash'
+  | 'StairStepper'
+  | 'StandUpPaddling'
+  | 'Surfing'
+  | 'Swim'
+  | 'TableTennis'
+  | 'Tennis'
+  | 'TrailRun'
+  | 'Velomobile'
+  | 'VirtualRide'
+  | 'VirtualRow'
+  | 'VirtualRun'
+  | 'Walk'
+  | 'WeightTraining'
+  | 'Wheelchair'
+  | 'Windsurf'
+  | 'Workout'
+  | 'Yoga'
+
 export interface StravaActivity {
   id: number
   name: string
@@ -6,7 +58,7 @@ export interface StravaActivity {
   elapsed_time: number
   total_elevation_gain: number
   type: string
-  sport_type: string
+  sport_type: StravaSportType
   start_date: string
   start_date_local: string
   timezone: string
