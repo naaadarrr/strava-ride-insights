@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import type { StravaActivity } from '../../types/strava'
 import { OverallStats } from './OverallStats'
 import { TimeDistributionChart } from './TimeDistributionChart'
 import { WeekendStats } from './WeekendStats'
@@ -13,6 +12,7 @@ import {
 } from '../../utils/statsCalculator'
 import { useTranslations } from 'next-intl'
 import { useStatsActivities } from '@/hooks/useStatsActivities'
+import { HeatMap } from '../HeatMap'
 
 const YEARS_TO_SHOW = 5 // 控制显示最近几年的数据
 
@@ -30,18 +30,9 @@ export function StatsContainer() {
   }, [currentYear])
 
   const stats = useMemo(() => calculateRideStats(activities || []), [activities])
-  const timeDistribution = useMemo(
-    () => calculateTimeDistribution(activities || []),
-    [activities]
-  )
-  const weekdayStats = useMemo(
-    () => calculateWeekdayStats(activities || []),
-    [activities]
-  )
-  const seasonalStats = useMemo(
-    () => calculateSeasonalStats(activities || []),
-    [activities]
-  )
+  const timeDistribution = useMemo(() => calculateTimeDistribution(activities || []), [activities])
+  const weekdayStats = useMemo(() => calculateWeekdayStats(activities || []), [activities])
+  const seasonalStats = useMemo(() => calculateSeasonalStats(activities || []), [activities])
 
   const handleYearChange = (direction: 'prev' | 'next') => {
     const currentIndex = years.indexOf(selectedYear)
@@ -53,7 +44,7 @@ export function StatsContainer() {
   }
 
   return (
-    <div className={`space-y-6 ${isLoading ? "opacity-50 pointer-events-none" : ""}`}>
+    <div className={`space-y-6 ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}>
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{t('stats.title')}</h2>
         <div className="flex items-center justify-center sm:justify-end gap-1 text-sm">
@@ -93,6 +84,8 @@ export function StatsContainer() {
           {error}
         </div>
       )}
+
+      <HeatMap activities={activities} />
 
       {/* First row - Overall Stats */}
       <div className="grid grid-cols-1">

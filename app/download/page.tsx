@@ -19,10 +19,7 @@ export default function DownloadPage() {
         fetch('/api/strava/stats'),
       ])
 
-      const [activities, stats] = await Promise.all([
-        activitiesRes.json(),
-        statsRes.json(),
-      ])
+      const [activities, stats] = await Promise.all([activitiesRes.json(), statsRes.json()])
 
       // Create a combined data object
       const data = {
@@ -67,11 +64,11 @@ export default function DownloadPage() {
             <select
               id="year"
               value={selectedYear}
-              onChange={(e) => setSelectedYear(e.target.value)}
+              onChange={e => setSelectedYear(e.target.value)}
               className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="">Select year</option>
-              {years.map((year) => (
+              {years.map(year => (
                 <option key={year} value={year.toString()}>
                   {year}
                 </option>

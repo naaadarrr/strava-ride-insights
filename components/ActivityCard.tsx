@@ -55,13 +55,9 @@ export function ActivityCard({ activity, onClick }: ActivityCardProps) {
           <div className="flex items-center gap-2 mb-2">
             <div className="flex items-center text-gray-500 dark:text-gray-400">
               <Calendar className="h-4 w-4 mr-1 text-purple-500" />
-              <span className="text-sm">
-                {formatDate(activity.start_date_local)}
-              </span>
+              <span className="text-sm">{formatDate(activity.start_date_local)}</span>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              {activity.name}
-            </h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{activity.name}</h3>
           </div>
         </div>
 

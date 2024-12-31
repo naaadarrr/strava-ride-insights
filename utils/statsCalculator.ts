@@ -37,9 +37,11 @@ export function calculateRideStats(activities: StravaActivity[]): RideStats {
 
   // 计算平均功率（只计算有功率数据的活动）
   const activitiesWithPower = activities.filter(a => a.average_watts)
-  const averagePower = activitiesWithPower.length > 0
-    ? activitiesWithPower.reduce((sum, a) => sum + (a.average_watts || 0), 0) / activitiesWithPower.length
-    : 0
+  const averagePower =
+    activitiesWithPower.length > 0
+      ? activitiesWithPower.reduce((sum, a) => sum + (a.average_watts || 0), 0) /
+        activitiesWithPower.length
+      : 0
 
   const longestRide = activities.reduce(
     (max, current) => (current.distance > max.distance ? current : max),
