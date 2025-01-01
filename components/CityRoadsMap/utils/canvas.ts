@@ -1,3 +1,5 @@
+import { MAP_BACKGROUND } from '../constants'
+
 export function setupCanvas(canvas: HTMLCanvasElement) {
   const ctx = canvas.getContext('2d')
   if (!ctx) return null
@@ -12,6 +14,8 @@ export function setupCanvas(canvas: HTMLCanvasElement) {
 }
 
 export function clearCanvas(ctx: CanvasRenderingContext2D) {
-  ctx.fillStyle = '#F7F2E8'
-  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+  const { width, height } = ctx.canvas
+  ctx.save()
+  ctx.fillStyle = MAP_BACKGROUND
+  ctx.fillRect(0, 0, width, height)
 }

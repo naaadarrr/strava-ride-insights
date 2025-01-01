@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { fetchRoadNetwork } from './utils/overpass'
-import { ROAD_STYLE, GLOW_SETTINGS } from './constants'
+import { ROAD_STYLE, GLOW_SETTINGS, ROUTE_STYLE, MAP_BACKGROUND } from './constants'
 import { setupCanvas, clearCanvas } from './utils/canvas'
 import {
   getExpandedBounds,
@@ -21,6 +21,7 @@ export function CityRoadsMap({
 }: CityRoadsMapProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [roadNetwork, setRoadNetwork] = useState<any[]>([])
+  const [isLoading, setIsLoading] = useState(false)
   const [transform, setTransform] = useState<Transform>({ scale: 1, translateX: 0, translateY: 0 })
 
   // 处理单条或多条路线
@@ -32,11 +33,14 @@ export function CityRoadsMap({
 
   const fetchRoads = useCallback(async (bounds: Bounds) => {
     try {
+      setIsLoading(true)
       const expandedBounds = getExpandedBounds(bounds)
       const roads = await fetchRoadNetwork(expandedBounds)
       setRoadNetwork(prevRoads => [...prevRoads, ...roads])
     } catch (error) {
       console.error('Failed to fetch road network:', error)
+    } finally {
+      setIsLoading(false)
     }
   }, [])
 
@@ -110,7 +114,7 @@ export function CityRoadsMap({
     // Draw routes with heat effect
     routes.current.forEach(route => {
       const color = getColorForIntensity(route.intensity)
-      const baseWidth = Math.min(3, 1 + route.intensity * 3)
+      const baseWidth = Math.min(ROUTE_STYLE.maxWidth, ROUTE_STYLE.baseWidth + route.intensity * ROUTE_STYLE.intensityMultiplier)
 
       // Draw glow effect
       ctx.beginPath()
@@ -130,7 +134,7 @@ export function CityRoadsMap({
       ctx.beginPath()
       ctx.strokeStyle = color
       ctx.lineWidth = baseWidth
-      ctx.globalAlpha = 0.9
+      ctx.globalAlpha = ROUTE_STYLE.opacity
       ctx.filter = 'none'
 
       route.points.forEach(([lat, lng], index) => {
@@ -145,15 +149,16 @@ export function CityRoadsMap({
   }, [summaryPolyline, summaryPolylines, startLatlng, roadNetwork, transform])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="w-full rounded-lg"
-      style={{
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#f5f2e9',
-        cursor: disableZoom ? 'default' : 'grab',
-      }}
-    />
+    <div className="relative w-full h-full">
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full"
+      />
+      {isLoading && (
+        <div className={`absolute inset-0 flex items-center justify-center`} style={{ backgroundColor: MAP_BACKGROUND }}>
+          <div className="w-8 h-8 border-4 border-[#FF7311] border-t-transparent rounded-full animate-spin dark:border-[#FF9540] dark:border-t-transparent" />
+        </div>
+      )}
+    </div>
   )
 }
