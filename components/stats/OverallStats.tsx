@@ -17,7 +17,7 @@ export function OverallStats({ stats }: OverallStatsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {/* 总览卡片 */}
-      <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950 dark:to-orange-900 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-orange-100 hover:to-orange-200 dark:hover:from-orange-900 dark:hover:to-orange-800">
+      <div className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-orange-200 dark:bg-orange-800 rounded-lg">
             <Activity className="h-6 w-6 text-orange-600 dark:text-orange-300" />
