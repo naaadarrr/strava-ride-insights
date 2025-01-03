@@ -15,44 +15,47 @@ export function OverallStats({ stats }: OverallStatsProps) {
   const t = useTranslations()
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* 总览卡片 */}
-      <div className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-orange-200 dark:bg-orange-800 rounded-lg">
-            <Activity className="h-6 w-6 text-orange-600 dark:text-orange-300" />
-          </div>
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-            {t('stats.overview.title')}
-          </h3>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {/* 总览卡片 */}
+    <div className="bg-white p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="p-2 bg-orange-200 dark:bg-orange-800 rounded-lg">
+          <Activity className="h-6 w-6 text-orange-600 dark:text-orange-300" />
         </div>
-        <div className="space-y-4">
-          <div className="group transition-all duration-300">
-            <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-300">
-              {t('stats.overview.total_distance')}
-            </p>
-            <p className="text-2xl font-bold text-orange-700 dark:text-orange-300 group-hover:scale-105 transition-transform">
-              <Distance value={stats.totalDistance} />
-            </p>
-          </div>
-          <div className="group transition-all duration-300">
-            <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-300">
-              {t('stats.overview.total_time')}
-            </p>
-            <p className="text-2xl font-bold text-orange-700 dark:text-orange-300 group-hover:scale-105 transition-transform">
-              <Duration value={stats.totalTime} />
-            </p>
-          </div>
-          <div className="group transition-all duration-300">
-            <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-300">
-              {t('stats.overview.total_rides')}
-            </p>
-            <p className="text-2xl font-bold text-orange-700 dark:text-orange-300 group-hover:scale-105 transition-transform">
-              {stats.totalRides} {t('stats.overview.times')}
-            </p>
-          </div>
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+          {t('stats.overview.title')}
+        </h3>
+      </div>
+      <div className="space-y-4">
+        <div className="group transition-all duration-300">
+          <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-300">
+            {t('stats.overview.total_distance')}
+          </p>
+          <p className="text-2xl font-bold text-orange-700 dark:text-orange-300 group-hover:scale-105 transition-transform">
+            <Distance value={stats.totalDistance} />
+          </p>
+        </div>
+        <div className="group transition-all duration-300">
+          <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-300">
+            {t('stats.overview.total_time')}
+          </p>
+          <p className="text-2xl font-bold text-orange-700 dark:text-orange-300 group-hover:scale-105 transition-transform">
+            <Duration value={stats.totalTime} />
+          </p>
+        </div>
+        <div className="group transition-all duration-300">
+          <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-300">
+            {t('stats.overview.total_rides')}
+          </p>
+          <p className="text-2xl font-bold text-orange-700 dark:text-orange-300 group-hover:scale-105 transition-transform">
+            {stats.totalRides} {t('stats.overview.times')}
+          </p>
         </div>
       </div>
+    </div>
+  </div>
+);
+
 
       {/* 最佳记录卡片 */}
       <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-900 dark:hover:to-blue-800">
